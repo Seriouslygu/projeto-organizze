@@ -1,2 +1,3 @@
 # projetoOrganizze
-Projeto criado utilizando frameword IONIC - Recriando app Organizze.
+Recriando app Organizze (gerenciador de finanças)
+- Projeto criado utilizando framework IONIC.
