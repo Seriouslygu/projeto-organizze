@@ -1,0 +1,30 @@
+<ion-content >
+  <div id="centralizar">
+    <div>
+      <img id="logo" src="../../assets/img/organizze.png">
+    </div>
+    <ion-item lines='none'>
+      <ion-label position="floating">E-mail</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <br>
+    <ion-item lines='none'>
+      <ion-label position="floating">Senha</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <div id="direita">
+      Esqueci minha senha
+    </div>
+    <br>
+    <ion-row>
+      <ion-col>
+        <ion-button shape="round"   color="success" fill="outline" (click)="geralCtrl.carregarTela('cadastro')" >Salvar </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button shape="round"  color="danger" fill="outline" (click)="geralCtrl.alertInicial()">Cancelar </ion-button>
+      </ion-col>
+    </ion-row>
+
+
+  </div>
+</ion-content>

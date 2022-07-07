@@ -1,0 +1,32 @@
+ion-content{
+    border:0px solid red;
+}
+
+#centralizar{
+   
+    text-align: center;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0px 20px;
+
+}
+ion-item{
+    border: 2px solid black;
+    border-radius: 10px;
+
+}
+
+#direita{
+    text-align: right;
+    margin-top: 10px;
+}
+
+#logo{
+    border:0px solid red;
+    border-radius: 50%;
+    margin-bottom: 30px;
+    width: 50%;
+}

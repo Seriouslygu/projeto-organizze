@@ -1,0 +1,126 @@
+<ion-content color="dark">
+  <!--Foto-->
+  <div style="padding-top: 30px;">
+    <div id="divfoto">
+      <img >
+    </div>
+    
+    <ion-row>
+      <ion-col><ion-icon size="large" name="camera-outline" (click)="cameraCtrl.takePicture()"></ion-icon></ion-col>
+      <ion-col><ion-icon size="large" name="image-outline"></ion-icon></ion-col>
+    </ion-row>
+  </div>
+  
+  <!--Dados de Acesso-->
+  <div class="secao">
+    <ion-text color="danger">
+      <h3>Dados de Acesso</h3>
+    </ion-text>
+     
+    <ion-item lines='none'>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input clearInput maxlength="40"  type="email"  [(ngModel)]="email" (ionBlur)="validacaoCtrl.validarEmail(email)" ></ion-input>
+      <span *ngIf="validacaoCtrl.erroEmail">*Prenchimento Necessário</span>
+    </ion-item>
+    <ion-item lines='none'>
+      <ion-label position="floating">Repita o Email</ion-label>
+      <ion-input clearInput maxlength="40"  type="email"  [(ngModel)]="emailConfir"(ionBlur)="validacaoCtrl.validarConfirmarEmail(email, emailConfir)" ></ion-input>
+      <span *ngIf="validacaoCtrl.erroEmailConfir">*Prenchimento Necessário</span>
+    </ion-item>
+    <ion-item lines='none'>
+      <ion-label position="floating">Senha</ion-label>
+      <ion-input clearInput maxlength="40"  type="password"  [(ngModel)]="senha" (ionBlur)="validacaoCtrl.validarSenha(senha)"></ion-input>
+      <span *ngIf="validacaoCtrl.erroSenha">*Prenchimento Necessário</span>
+    </ion-item>
+    <ion-item lines='none'>
+      <ion-label position="floating">Repita a Senha</ion-label>
+      <ion-input clearInput maxlength="40"  type="password"  [(ngModel)]="senhaConfir" (ionBlur)="validacaoCtrl.validarConfirmarSenha(senha, senhaConfir)"></ion-input>
+      <span *ngIf="validacaoCtrl.erroSenhaConfir">*Prenchimento Necessário</span>
+    </ion-item>
+  </div>
+  <!--Dados Pessoais-->
+  <div class="secao">
+    <ion-text color="danger">
+      <h3 >Dados Pessoais</h3>
+    </ion-text>
+    <ion-item lines='none' >
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input clearInput maxlength="40"  type="text"  [(ngModel)]="nome" (ionBlur)="validacaoCtrl.validarNome(nome)"></ion-input>
+      <span *ngIf="validacaoCtrl.erroNome">*Prenchimento Necessário</span>
+    </ion-item>
+    <ion-item lines='none'>
+      <ion-label position="floating">Sobrenome</ion-label>
+      <ion-input clearInput maxlength="40"  type="text" [(ngModel)]="sobrenome" (ionBlur)="validacaoCtrl.validarSobrenome(sobrenome)" ></ion-input>
+      <span *ngIf="validacaoCtrl.erroSobrenome">*Prenchimento Necessário</span>
+    </ion-item>
+    <ion-item lines='none'>
+      <ion-label position="floating">Telefone</ion-label>
+      <ion-input clearInput maxlength="40"  type="text"  [(ngModel)]="telefone" (ionChange)=maskTelefone(telefone) (ionBlur)="validacaoCtrl.validarTelefone(telefone)"></ion-input>
+      <span *ngIf="validacaoCtrl.erroTelefone">*Prenchimento Necessário</span>
+    </ion-item>
+    <ion-item lines='none'>
+      <ion-label position="floating">Genero</ion-label>
+      <ion-select value="M" [(ngModel)]="sexo">
+        <ion-select-option value="F">Feminino</ion-select-option>
+        <ion-select-option value="M">Masculino</ion-select-option>
+        <ion-select-option value="O">Outros</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item lines='none'>
+      <ion-label position="floating">Data de Nascimento</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="nasc" (ionBlur)=formatarData() ></ion-datetime>
+    </ion-item>
+  </div>
+  <!--endereço-->
+  <div class="secao"> 
+    <ion-text color="danger">
+      <h3>Endereço</h3>
+    </ion-text>
+    <ion-row>
+      <ion-col size="7" >
+        <ion-item lines='none'>
+          <ion-label position="floating">Cep</ion-label>
+          <ion-input (ionBlur)="carregarcep(cep)" [(ngModel)]="cep"></ion-input>
+        </ion-item>
+       </ion-col>
+       <ion-col size="1">
+  
+       </ion-col>
+       <ion-col size="4">
+        <ion-item lines='none'>
+          <ion-label position="floating">Número</ion-label>
+          <ion-input clearInput maxlength="5"  type="number" [(ngModel)]="numero" ></ion-input>
+        </ion-item>
+      </ion-col>
+  
+    </ion-row>
+    <ion-item lines='none'>
+      <ion-label position="floating">Endereço</ion-label>
+      <ion-input clearInput maxlength="40"  type="text" [(ngModel)]="endereco" ></ion-input>
+    </ion-item>
+    <ion-item lines='none'>
+      <ion-label position="floating">Complemento</ion-label>
+      <ion-input clearInput maxlength="40"  type="text" [(ngModel)]="complemento" ></ion-input>
+    </ion-item>
+    <ion-item lines='none'>
+      <ion-label position="floating">Bairro</ion-label>
+      <ion-input clearInput maxlength="40"  type="text" [(ngModel)]="bairro" ></ion-input>
+    </ion-item>
+    <ion-item lines='none'>
+      <ion-label position="floating">Cidade</ion-label>
+      <ion-input clearInput maxlength="40"  type="text" [(ngModel)]="cidade" ></ion-input>
+    </ion-item>
+  </div>
+  <!--Botões-->
+  <div class="secao">
+    <ion-row>
+      <ion-col>
+        <ion-button shape="round"   color="success" fill="outline" (click)= "salvar()">Salvar </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button shape="round"  color="danger" fill="outline" (click)="geralCtrl.alertConfirm()" >Cancelar </ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+  </ion-content>
+  
